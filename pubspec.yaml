@@ -1,7 +1,8 @@
 name: google_gemini
 description: "Google Gemini SDK for Flutter"
 version: 0.0.1
-homepage:
+homepage: https://github.com/ged-flod/google_gemini
+repository: https://github.com/ged-flod/google_gemini
 
 environment:
   sdk: '>=3.2.0 <4.0.0'
