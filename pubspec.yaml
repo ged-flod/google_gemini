@@ -1,5 +1,5 @@
 name: google_gemini
-description: "A new Flutter package project."
+description: "Google Gemini SDK for Flutter"
 version: 0.0.1
 homepage:
 
@@ -21,7 +21,16 @@ dev_dependencies:
 
 # The following section is specific to Flutter packages.
 flutter:
-
+  plugin:
+    platforms:
+      android:
+        package: com.wexende.google_gemini
+        pluginClass: GoogleGeminiPlugin
+      ios:
+        pluginClass: GoogleGeminiPlugin
+      web:
+        pluginClass: GoogleGeminiPlugin
+        fileName: google_gemini.dart
   # To add assets to your package, add an assets section, like this:
   # assets:
   #   - images/a_dot_burr.jpeg
