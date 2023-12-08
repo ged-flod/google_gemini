@@ -25,7 +25,7 @@ This package provides a powerful bridge between your Flutter application and Goo
 
 ## Getting started
 
-To get the API key you have to create a Gemini account on the [gemini website](https://deepmind.google/technologies/gemini/). Once you have to Gemini API key, you are ready to start building.
+To get the API key you have to create a Gemini account on the [gemini website](https://deepmind.google/technologies/gemini/#build-with-gemini). Once you have to Gemini API key, you are ready to start building.
 
 ## Create Gemini Instance
 
