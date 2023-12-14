@@ -12,15 +12,13 @@ This package provides a powerful bridge between your Flutter application and Goo
 ## Features
 
 - [x] [Get Stated](#getting-started)
-- [ ] [Create Gemini Instance](#create-openai-instance)
-- [ ] [Ask Gemini](#ask-gemini)
+- [x] [Create Gemini Instance](#create-openai-instance)
+- [ ] [Generate content](#generate-content)
+  - [x] [Text only input](#text-only-input)
+  - [ ] [Text and image input](#text-and-image-input)
 - [ ] [Gemini Response](#gemini-response)
-- [ ] [Gemini Methods & Properties](#emini-methods--properties)
-- [ ] [Gemini multimodality]()
-    - [ ] [Text]()
-    - [ ] [Images]()
-    - [ ] [Audio]()
-    - [ ] [Code]()
+- [ ] [Gemini Methods](#gemini-methods)
+
 
 
 ## Getting started
@@ -30,16 +28,36 @@ To get the API key you have to create a Gemini account on the [ai.google.dev](ht
 ## Create Gemini Instance
 
 ```dart
-final gemini = GoogleGemini(apiKey: "Your Gemini Api Key");
+final gemini = GoogleGemini(
+    apiKey: "--- Your Gemini Api Key --- ", // Replace this
+    model: "gemini-pro"
+);
 ```
 
-## Ask Gemini
+## Generate content
+
+With Gemini you use both text and image data for prompting, depending on what model variation you use. 
+
+For example, you can generate text using text prompt with the gemini-pro model and use both text and image data to prompt the gemini-pro-vision model
+
+### Text only input
+
+This feature lets you perform natural language processing (NLP) tasks such as text completion and summarization.
 
 ```dart
-gemini.ask("Who are you?").then((response){
+gemini.generateText("Tell me a story").then((response){
     print(response)
 })
 ```
+
+### Text and image input
+
+You can send a text prompt with an image to the gemini-pro-vision model to perform a vision related task. For example, captioning an image or identifying what's in an image.
+
+```dart
+// In progress
+```
+
 
 ## Gemini Response
 
@@ -47,44 +65,12 @@ gemini.ask("Who are you?").then((response){
 // In progress
 ```
 
-## Gemini Methods & Properties
+## Gemini Methods
 
 ```dart
 // In progress
 ```
 
 
-## Gemini multimodality
-
-```dart
-// In progress
-```
-
-
-### Text
-
-```dart
-// In progress
-```
-
-### Images
-
-```dart
-// In progress
-```
-
-
-### Audio
-
-```dart
-// In progress
-```
-
-
-### Code
-
-```dart
-// In progress
-```
 
 
