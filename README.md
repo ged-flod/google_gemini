@@ -32,8 +32,7 @@ To get the API key you have to create a Gemini account on the [ai.google.dev](ht
 
 ```dart
 final gemini = GoogleGemini(
-    apiKey: "--- Your Gemini Api Key --- ",
-    model: "gemini-pro"
+  apiKey: "--- Your Gemini Api Key --- ",
 );
 ```
 
@@ -58,7 +57,14 @@ gemini.generateFromText("Tell me a story")
 You can send a text prompt with an image to the gemini-pro-vision model to perform a vision related task. For example, captioning an image or identifying what's in an image.
 
 ```dart
-// In progress
+File image = File("assets/images.png")
+
+gemini.generateFromTextAndImages(
+  query: "What is this picture?",
+  image: image
+)
+.then((value) => print(value.text))
+.catchError((e) => print(e));
 ```
 
 ## Build multi-turn conversations

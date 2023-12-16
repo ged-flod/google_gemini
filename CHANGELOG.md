@@ -1,3 +1,7 @@
+## 0.0.4
+
+* Add Gemini Response
+
 ## 0.0.3
 
 * Add Google Generative ai Rest Api
