@@ -1,4 +1,4 @@
 library google_gemini;
 
-export 'src/models/gemini.dart';
-export 'src/apis.dart';
+export 'src/models/gemini/gemini.dart';
+export 'src/repository/apis.dart';

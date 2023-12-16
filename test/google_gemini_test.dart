@@ -16,7 +16,9 @@ void main() {
       model: "gemini-pro"
     );
     log("Writing a story");
-    gemini.generateText("Tell me a story").then((value) => print(value));
+    gemini.generateFromText("Tell me a story")
+    .then((value) => print(value))
+    .catchError((e) => print(e));
     expect(1, 1);
   });
 

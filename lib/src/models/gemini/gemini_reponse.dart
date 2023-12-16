@@ -85,3 +85,15 @@ class GeminiHttpResponse{
   }
 
 }
+
+
+
+class GeminiResponse{
+  final String text;
+  final GeminiHttpResponse response;
+
+  GeminiResponse({
+    required this.text,
+    required this.response
+  });
+}

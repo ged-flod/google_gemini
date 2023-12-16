@@ -14,8 +14,11 @@ This package provides a powerful bridge between your Flutter application and Goo
 - [x] [Get Stated](#getting-started)
 - [x] [Create Gemini Instance](#create-openai-instance)
 - [ ] [Generate content](#generate-content)
-  - [x] [Text only input](#text-only-input)
-  - [ ] [Text and image input](#text-and-image-input)
+  - [x] [Generate text from text-only input](#text-only-input)
+  - [ ] [Generate text from text-and-image input](#text-and-image-input)
+- [ ] [Build multi-turn conversations (chat)](#build-multi-turn-conversations)
+- [ ] [Use streaming for faster interactions](#use-streaming-for-faster-interactions)
+
 - [ ] [Gemini Response](#gemini-response)
 - [ ] [Gemini Methods](#gemini-methods)
 
@@ -29,7 +32,7 @@ To get the API key you have to create a Gemini account on the [ai.google.dev](ht
 
 ```dart
 final gemini = GoogleGemini(
-    apiKey: "--- Your Gemini Api Key --- ", // Replace this
+    apiKey: "--- Your Gemini Api Key --- ",
     model: "gemini-pro"
 );
 ```
@@ -45,9 +48,9 @@ For example, you can generate text using text prompt with the gemini-pro model a
 This feature lets you perform natural language processing (NLP) tasks such as text completion and summarization.
 
 ```dart
-gemini.generateText("Tell me a story").then((response){
-    print(response)
-})
+gemini.generateFromText("Tell me a story")
+.then((value) => print(value.text))
+.catchError((e) => print(e));
 ```
 
 ### Text and image input
@@ -58,6 +61,17 @@ You can send a text prompt with an image to the gemini-pro-vision model to perfo
 // In progress
 ```
 
+## Build multi-turn conversations
+
+```dart
+// In progress
+```
+
+## Use streaming for faster interactions
+
+```dart
+// In progress
+```
 
 ## Gemini Response
 

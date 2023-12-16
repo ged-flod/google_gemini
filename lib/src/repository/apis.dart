@@ -1,8 +1,8 @@
 import 'dart:convert';
 import 'dart:developer';
 
-import 'package:google_gemini/src/constants.dart';
-import 'package:google_gemini/src/models/gemini_reponse.dart';
+import 'package:google_gemini/src/config/constants.dart';
+import 'package:google_gemini/src/models/gemini/gemini_reponse.dart';
 import 'package:http/http.dart' as http;
 
 /// Generate Text from a query with Gemini Api and http
