@@ -52,6 +52,8 @@ gemini.generateFromText("Tell me a story")
 .catchError((e) => print(e));
 ```
 
+<img height="350" src="https://miro.medium.com/v2/resize:fit:640/format:webp/1*tcrU-YN9FAwesIYyZZUSVw.gif" />
+
 ### Text and image input
 
 You can send a text prompt with an image to the gemini-pro-vision model to perform a vision related task. For example, captioning an image or identifying what's in an image.
@@ -66,6 +68,9 @@ gemini.generateFromTextAndImages(
 .then((value) => print(value.text))
 .catchError((e) => print(e));
 ```
+
+<img height="350" src="https://miro.medium.com/v2/resize:fit:640/format:webp/1*GHFRVTpXRLgHwtjiBRNR6Q.gif" />
+
 
 ## Build multi-turn conversations
 
