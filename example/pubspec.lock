@@ -79,10 +79,10 @@ packages:
     dependency: "direct main"
     description:
       name: google_gemini
-      sha256: "623b714589afadb8700e38250e24683bf122289998016f17da860002c2e43244"
+      sha256: "3ec5123e98a163ff90843a7fb837b4435564abdbaf09919539416027f3430ed5"
       url: "https://pub.dev"
     source: hosted
-    version: "0.0.5"
+    version: "0.0.6"
   http:
     dependency: transitive
     description:
