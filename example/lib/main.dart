@@ -3,7 +3,7 @@ import 'package:google_gemini/google_gemini.dart';
 import 'dart:io';
 import 'package:image_picker/image_picker.dart';
 
-const apiKey = "__ YOUR API KEY __";
+const apiKey = "--- Your Gemini Api Key ---";
 
 void main() {
   runApp(const MyApp());
@@ -65,7 +65,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
 
 
-// ------------------------------ Text with Image ------------------------------
+// ------------------------------ Text Only ------------------------------
 
 class TextOnly extends StatefulWidget {
   const TextOnly({super.key,});

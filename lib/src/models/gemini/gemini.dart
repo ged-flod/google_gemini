@@ -1,5 +1,7 @@
 import 'dart:io';
 
+import 'package:google_gemini/src/models/gemini/config/gemini_safety_settings.dart';
+import 'package:google_gemini/src/models/gemini/gemini_config.dart';
 import 'package:google_gemini/src/repository/apis.dart';
 import 'package:google_gemini/src/models/gemini/gemini_reponse.dart';
 
@@ -7,10 +9,14 @@ import 'package:google_gemini/src/models/gemini/gemini_reponse.dart';
 class GoogleGemini {
   
   String apiKey; // The API Key from Google
+  GenerationConfig? config;
+  List<SafetySettings>? safetySettings;
   String? model = 'gemini-pro'; // The model to use, gemini-pro by default
 
   GoogleGemini({
     required this.apiKey,
+    this.config,
+    this.safetySettings,
     this.model
   });
 
@@ -26,6 +32,8 @@ class GoogleGemini {
     GeminiHttpResponse httpResponse = await apiGenerateText(
       query: query,
       apiKey: apiKey,
+      config: config,
+      safetySettings: safetySettings,
       model: "gemini-pro"
     );
 
@@ -50,6 +58,8 @@ class GoogleGemini {
       query: query,
       apiKey: apiKey,
       image: image,
+      config: config,
+      safetySettings: safetySettings,
       model: "gemini-pro-vision"
     );
 

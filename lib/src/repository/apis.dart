@@ -3,13 +3,29 @@ import 'dart:developer';
 import 'dart:io';
 
 import 'package:google_gemini/src/config/constants.dart';
+import 'package:google_gemini/src/models/gemini/config/gemini_safety_settings.dart';
+import 'package:google_gemini/src/models/gemini/gemini_config.dart';
 import 'package:google_gemini/src/models/gemini/gemini_reponse.dart';
 import 'package:http/http.dart' as http;
 
+
+/// Convert safetySettings List int a json
+List<Map<String, dynamic>> _convertSafetySettings(List<SafetySettings> safetySettings) {
+  List<Map<String, dynamic>> list = [];
+  for (var element in safetySettings) { 
+    list.add(element.toJson());
+  }
+  return list;
+}
+
+
 /// Generate Text from a query with Gemini Api and http
+/// requires a query, an apiKey,
 Future<GeminiHttpResponse> apiGenerateText({
   required String query, 
-  required String apiKey, 
+  required String apiKey,
+  required GenerationConfig? config, 
+  required List<SafetySettings>? safetySettings,
   String model = 'gemini-pro'
 }) async {
 
@@ -26,7 +42,9 @@ Future<GeminiHttpResponse> apiGenerateText({
         "parts": [{
             "text": query
         }]
-    }]
+    }],
+    "safetySettings": _convertSafetySettings(safetySettings ?? []),
+    "generationConfig": config?.toJson()
   }));
 
   log("--- Http Status ${response.statusCode} ---");
@@ -39,6 +57,11 @@ Future<GeminiHttpResponse> apiGenerateText({
 
 }
 
+
+
+
+
+/// Convert a File into a base64 String
 String _convertIntoBase64(File file) {
   log("--- ${file.path} ---");
   List<int> imageBytes = file.readAsBytesSync();
@@ -47,10 +70,17 @@ String _convertIntoBase64(File file) {
 }
 
 
+
+
+
+/// Generate Text from a query with Gemini pro-vision model
+/// requires an image File, and a query
 Future<GeminiHttpResponse> apiGenerateTextAndImages({
   required String query, 
   required String apiKey, 
   required File image,
+  required GenerationConfig? config,
+  required List<SafetySettings>? safetySettings,
   String model = 'gemini-pro-vision'
 }) async {
 
@@ -78,9 +108,11 @@ Future<GeminiHttpResponse> apiGenerateTextAndImages({
               "mime_type":"image/jpeg",
               "data": base64Imge,
             }
-          }
+          },
         ]
-    }]
+    }],
+    "safetySettings": _convertSafetySettings(safetySettings ?? []),
+    "generationConfig": config?.toJson()
   }));
 
   log("--- Http Status ${response.statusCode} ---");

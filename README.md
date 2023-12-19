@@ -10,13 +10,14 @@ This package provides a powerful bridge between your Flutter application and Goo
 # Example 
 
 <table>
-  <td>
-    <img width="450" src="https://miro.medium.com/v2/resize:fit:640/format:webp/1*tcrU-YN9FAwesIYyZZUSVw.gif" />
-  </td>
-  <td>
-    <img width="450" src="https://miro.medium.com/v2/resize:fit:640/format:webp/1*GHFRVTpXRLgHwtjiBRNR6Q.gif" />
-
-  </td>
+  <tr>
+    <td>
+      <img width="450" src="https://miro.medium.com/v2/resize:fit:640/format:webp/1*tcrU-YN9FAwesIYyZZUSVw.gif" />
+    </td>
+    <td>
+      <img width="450" src="https://miro.medium.com/v2/resize:fit:640/format:webp/1*GHFRVTpXRLgHwtjiBRNR6Q.gif" />
+    </td>
+  </tr>
 </table>
 
 
@@ -81,6 +82,100 @@ gemini.generateFromTextAndImages(
 ```
 
 <img height="350" src="https://miro.medium.com/v2/resize:fit:640/format:webp/1*GHFRVTpXRLgHwtjiBRNR6Q.gif" />
+
+## Configuration
+
+Every prompt you send to the model includes parameter values that control how the model generates a response. The model can generate different results for different parameter values.
+
+### Model parameters
+
+The most common model parameters are:
+
+1. **Max output tokens**: Specifies the maximum number of tokens that can be generated in the response. A token is approximately four characters. 100 tokens correspond to roughly 60-80 words.
+
+
+2. **Temperature**: The temperature controls the degree of randomness in token selection. Lower temperatures are good for prompts that require a more deterministic or less open-ended response, while higher temperatures can lead to more diverse or creative results.
+
+3. **topK**: The topK parameter changes how the model selects tokens for output. 
+
+4. **topP**: The topP parameter changes how the model selects tokens for output.
+
+5. **stop_sequences**: Set a stop sequence to tell the model to stop generating content. A stop sequence can be any sequence of characters. Try to avoid using a sequence of characters that may appear in the generated content.
+
+**Example**
+```dart
+// Generation Configuration
+final config = GenerationConfig(
+    temperature: 0.5,
+    maxOutputTokens: 100,
+    topP: 1.0,
+    topK: 40,
+    stopSequences: []
+);
+
+// Gemini Instance
+final gemini = GoogleGemini(
+    apiKey: "--- Your Gemini Api Key ---",
+    config: config // pass the config here
+);
+```
+
+
+### Safety settings
+
+Safety settings are part of the request you send to the text service. It can be adjusted for each request you make to the API.
+
+#### Categories
+
+These categories cover various kinds of harms that developers may wish to adjust.
+
+
+```dart
+HARM_CATEGORY_UNSPECIFIED
+HARM_CATEGORY_DEROGATORY
+HARM_CATEGORY_TOXICITY
+HARM_CATEGORY_VIOLENCE
+HARM_CATEGORY_SEXUAL
+HARM_CATEGORY_MEDICAL
+HARM_CATEGORY_DANGEROUS
+HARM_CATEGORY_HARASSMENT
+HARM_CATEGORY_HATE_SPEECH
+HARM_CATEGORY_SEXUALLY_EXPLICIT
+HARM_CATEGORY_DANGEROUS_CONTENT	
+```
+
+#### Threshold
+
+Block at and beyond a specified harm probability.
+
+
+```dart
+HARM_BLOCK_THRESHOLD_UNSPECIFIED	
+BLOCK_LOW_AND_ABOVE	
+BLOCK_MEDIUM_AND_ABOVE
+BLOCK_ONLY_HIGH	
+BLOCK_NONE
+```
+
+**Example**
+
+```dart
+// Safety Settings
+final safety1 = SafetySettings(
+  category: SafetyCategory.HARM_CATEGORY_DANGEROUS_CONTENT,
+  threshold: SafetyThreshold.BLOCK_ONLY_HIGH
+);
+
+
+//  Gemini Instance
+final gemini = GoogleGemini(
+  apiKey:"--- Your Gemini Api Key ---",
+  safetySettings: [
+    safety1,
+    // safety2
+  ]  
+);
+```
 
 
 ## Build multi-turn conversations
