@@ -1,7 +1,7 @@
 import 'dart:io';
 
-import 'package:google_gemini/src/models/gemini/config/gemini_safety_settings.dart';
-import 'package:google_gemini/src/models/gemini/gemini_config.dart';
+import 'package:google_gemini/src/models/config/gemini_safety_settings.dart';
+import 'package:google_gemini/src/models/config/gemini_config.dart';
 import 'package:google_gemini/src/repository/apis.dart';
 import 'package:google_gemini/src/models/gemini/gemini_reponse.dart';
 

@@ -1,3 +1,8 @@
+## 0.1.0
+
+* Add Generation Configuration
+* Add Safety settings
+
 ## 0.0.9
 
 * Change screenshots
