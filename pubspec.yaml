@@ -1,6 +1,6 @@
 name: google_gemini
-description: "Google Gemini SDK for Flutter"
-version: 0.1.0
+description: "Google Gemini SDK for Flutter. This package provides a powerful bridge between your Flutter application and Google's revolutionary Gemini AI."
+version: 0.1.1
 homepage: https://github.com/ged-flod/google_gemini
 repository: https://github.com/ged-flod/google_gemini
 topics:
@@ -16,8 +16,8 @@ environment:
   flutter: ">=1.20.0"
 
 dependencies:
-  flutter:
-    sdk: flutter
+  # flutter:
+  #   sdk: flutter
   http: ^1.1.2
 
 dev_dependencies:

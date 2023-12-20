@@ -1,3 +1,8 @@
+## 0.1.1
+
+* Add More Package Descripion
+* Remove Flutter From dependencies for Dart support 
+
 ## 0.1.0
 
 * Add Generation Configuration
