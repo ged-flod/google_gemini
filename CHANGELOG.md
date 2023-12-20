@@ -1,3 +1,7 @@
+## 0.1.2
+
+* Format dart code
+
 ## 0.1.1
 
 * Add More Package Descripion
