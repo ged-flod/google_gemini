@@ -15,10 +15,10 @@ class GeminiHttpResponseCandidate {
   /// Create a GeminiHttpResponseCandidate from a json
   factory GeminiHttpResponseCandidate.fromJson(Map<String, dynamic>? json) {
     return GeminiHttpResponseCandidate(
-        finishReason: json['finishReason'] ?? "",
-        index: json['index'] ?? 0,
-        content: json['content'] ?? {},
-        safetyRatings: json['safetyRatings'] ?? []);
+        finishReason: json?['finishReason'] ?? "",
+        index: json?['index'] ?? 0,
+        content: json?['content'] ?? {},
+        safetyRatings: json?['safetyRatings'] ?? []);
   }
 
   /// Convert a GeminiHttpResponseCandidate to a json
