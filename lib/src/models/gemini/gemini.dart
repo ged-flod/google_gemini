@@ -28,7 +28,7 @@ class GoogleGemini {
         apiKey: apiKey,
         config: config,
         safetySettings: safetySettings,
-        model: "gemini-pro");
+        model: model);
 
     if (httpResponse.candidates.isNotEmpty) {
       for (var part in httpResponse.candidates[0].content!['parts']) {
@@ -51,7 +51,7 @@ class GoogleGemini {
         image: image,
         config: config,
         safetySettings: safetySettings,
-        model: "gemini-pro-vision");
+        model: model);
 
     if (httpResponse.candidates.isNotEmpty) {
       for (var part in httpResponse.candidates[0].content!['parts']) {
