@@ -10,7 +10,7 @@ class GoogleGemini {
   String apiKey; // The API Key from Google
   GenerationConfig? config;
   List<SafetySettings>? safetySettings;
-  String? model = 'gemini-pro'; // The model to use, gemini-pro by default
+  String model = 'gemini-pro'; // The model to use, gemini-pro by default
 
   GoogleGemini(
       {required this.apiKey, this.config, this.safetySettings, this.model});
