@@ -2,23 +2,23 @@
 /// This class is used to create a instance of a candidate
 class GeminiHttpResponseCandidate {
   final String? finishReason;
-  final int index;
+  final int? index;
   Map<String, dynamic>? content = {"parts": [], "role": "model"};
   final List safetyRatings;
 
   GeminiHttpResponseCandidate(
       {this.finishReason,
-      required this.index,
+      this.index,
       this.content,
       required this.safetyRatings});
 
   /// Create a GeminiHttpResponseCandidate from a json
-  factory GeminiHttpResponseCandidate.fromJson(Map<String, dynamic> json) {
+  factory GeminiHttpResponseCandidate.fromJson(Map<String, dynamic>? json) {
     return GeminiHttpResponseCandidate(
-        finishReason: json['finishReason'],
-        index: json['index'],
-        content: json['content'],
-        safetyRatings: json['safetyRatings']);
+        finishReason: json?['finishReason'] ?? "",
+        index: json?['index'] ?? 0,
+        content: json?['content'] ?? {},
+        safetyRatings: json?['safetyRatings'] ?? []);
   }
 
   /// Convert a GeminiHttpResponseCandidate to a json
